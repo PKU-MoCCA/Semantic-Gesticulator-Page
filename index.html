@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  
+  <meta property="og:title" content="Semantic Gesticulator: Semantics-Aware Co-Speech Gesture Synthesis"/>
+  <meta property="og:url" content=""/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="google-site-verification" content="c-OO9s8QGRGOjdJTz3dyfcYlgskfbLXnwRRAzQLcoWw" />
+
+  <title>SemanticGesticulator</title>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-62B92XNTBK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-62B92XNTBK');
+  </script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+  <link rel="icon" href="static/figures/icon2.png">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+<!-- paper -->
+<section class="publication-header">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <!-- <div class="columns is-centered"> -->
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Semantic Gesticulator: Semantics-Aware Co-Speech Gesture Synthesis</h1>
+          <div class="is-size-3 publication-authors">
+            SIGGRAPH 2024
+          </div>
+          <!-- <div class="is-size-4 publication-authors">
+            <a href="https://blog.siggraph.org/2023/07/siggraph-2023-technical-papers-awards-best-papers-honorable-mentions-and-test-of-time.html/" target="_blank"> (Best Paper Honorable Mention)
+          </div> -->
+        </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- authors -->
+<section class="publication-author-block">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://lumen-ze.github.io" target="_blank">Zeyi Zhang</a><sup>1*</sup>,</span>
+            <span class="author-block"><a href="https://aubrey-ao.github.io/" target="_blank">Tenglong Ao</a><sup>1*</sup>,</span>
+            <span class="author-block">Yuyao Zhang</a><sup>2*</sup>,</span>
+            <span class="author-block"><a href="https://talegqz.github.io" target="_blank">Qingzhe Gao</a><sup>1,3</sup>,</span>
+            <span class="author-block">Chuan Lin</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="https://baoquanchen.info" target="_blank">Baoquan Chen</a><sup>1,4</sup>,</span>
+            <span class="author-block"><a href="https://libliu.info/" target="_blank">Libin Liu</a><sup>1,4✉</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Peking University, China<sup>1</sup>,</span> 
+            <span class="author-block">Renmin University of China, China<sup>2</sup>,</span> 
+            <span class="author-block">Shandong University, China<sup>3</sup>,</span> 
+            <span class="author-block"> State Key Lab of General AI, China<sup>4</sup></span> 
+            <span class="eql-cntrb">
+              <small><br><sup>*</sup>indicates equal contribution</small>
+              <small><sup>✉</sup>corresponding author</small></span>
+          </div>
+          
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="None" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+            
+              <span class="link-block">
+                <a href="None" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+              </span>
+
+              <span class="link-block">
+                <a href="None" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fa fa-database"></i>
+                </span>
+                <span>Dataset</span>
+              </a>
+              </span>
+
+              <span class="link-block">
+                <a href="None"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+
+              <!-- </span> -->
+              <!-- Colab Link. -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/teaser_00.jpg" alt="cars peace"/>
+      </div>
+     
+      <h2 class="subtitle has-text-centered">
+        </span> Our system can synthesize realistic co-speech gestures with strong rhythmic coherence and semantic correspondence.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this work, we present <i>Semantic Gesticulator</i>, a novel framework designed to synthesize realistic 
+            gestures accompanying speech with strong semantic correspondence. Semantically meaningful gestures are 
+            crucial for effective non-verbal communication, but such gestures often fall within the long tail of the 
+            distribution of natural human motion. The sparsity of these movements makes it challenging for deep 
+            learning-based systems, trained on moderately sized datasets, to capture the relationship between the 
+            movements and the corresponding speech semantics. To address this challenge, we develop a generative 
+            retrieval framework based on a large language model. This framework efficiently retrieves suitable 
+            semantic gesture candidates from a motion library in response to the input speech. To construct this 
+            motion library, we summarize a comprehensive list of commonly used semantic gestures based on findings 
+            in linguistics, and we collect a high-quality motion dataset encompassing both body and hand movements. 
+            We also design a novel GPT-based model with strong generalization capabilities to audio, capable of 
+            generating high-quality gestures that match the rhythm of speech. Furthermore, we propose a semantic 
+            alignment mechanism to efficiently align the retrieved semantic gestures with the GPT's output, ensuring 
+            the naturalness of the final animation. Our system demonstrates robustness in generating gestures that 
+            are rhythmically coherent and semantically explicit, as evidenced by a comprehensive collection of 
+            examples. User studies confirm the quality and human-likeness of our results, and show that our system 
+            outperforms state-of-the-art systems in terms of semantic appropriateness by a clear margin.
+            </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<!-- 
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/system_overview_00.jpg" alt="cars peace"
+        width="500"/>
+      </div>
+  </div>
+</div>
+</section> -->
+
+<!-- overview -->
+<section class="hero is-small">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <br>
+    <br>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">System Overview</h2>
+            <div class="column is-centered has-text-centered">
+              <img src="static/figures/system_overview_00.jpg" alt="cars peace"
+              width="500"/>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Our system processes audio and speech transcripts as inputs to generate realistic full-body gestures, 
+            including finger motion, that are both rhythmically and semantically aligned with the speech content. 
+            It is capable of robustly synthesizing sparse semantic gestures, vital for effective communication.
+
+            It is built upon a discrete latent motion space, learned through the use of a residual VQ-VAE. 
+            This approach tokenize a sequence of gestures into hierarchical and compact motion tokens, ensuring 
+            both motion quality and diversity. As illustrated above, our system comprises 
+            three key modules: (a) an end-to-end neural generator capable of processing a diverse range of speech 
+            audio inputs to produce rhythm-matched gesture animations utilizing the GPT architecture; 
+            (b) a large language model (LLM)-based generative retrieval framework that comprehends the context of the 
+            transcript input and retrieves appropriate semantic gestures from a high-quality motion library covering 
+            commonly used semantic gestures; and (c) a semantics-aware alignment mechanism that integrates the retrieved 
+            semantic gestures with the rhythmic motion generated, resulting in semantically-enhanced gesture animation. 
+            In subsequent sections, we detail the components of our system and their respective training processes.
+          </p>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Semantic Gesticulator surpasses all baseline comparisons in terms of both qualitative and quantitative measures, 
+            demonstrated by the results of FGD and SC metrics, as well as user study outcomes. 
+            For applications, we devise an augmentation framework for identifying semantically similar gestures 
+            from an extensive collection of 2D videos, thereby enhancing the diversity of gestures. Moreover, 
+            through customizing a 2D video library, users can flexibly edit the style of final outcomes.
+          </p>
+          </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <!--/ Abstract. -->
+  </div>
+</section> 
+
+<!-- <section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Semantic Gestures Synthesis</h2>
+        <div class="content has-text-justified">
+          <p>
+            Our system successfully creates realistic gestures that accurately convey the intended meanings, aligning with the respective retrieval results. The character performs a range of semantic gestures, including natural body movements, reasonable arm swings, and delicate finger gesticulations. Here are some results:
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-body">
+    <div class="column is-centered has-text-centered">
+    <h3 class="title is-4">Short Sample Results</h3>
+      <div id="results-carousel" class="carousel results-carousel">
+      <div class="column is-centered has-text-centered">
+        <p><b>Text Prompt: “the person is <font color="red">angry</font>.”</b></p>
+
+                <video poster="" id="tree"  width=300>
+          <source src="static/figures/text_prompt/angry.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+      	<p><b> Text Prompt: “the person is <font color="red">happy</font> and <font color="red">excited</font>.”</b></p>
+
+                <video poster="" id="tree"  controls width=300>
+          <source src="static/figures/text_prompt/happy.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+        <div class="column is-centered has-text-centered">
+      	<p><b> Text Prompt: “the person is <font color="red">sad</font>.”</b></p>
+
+                <video poster="" id="tree"  controls width=300>
+          <source src="static/figures/text_prompt/sad.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+            <div class="column is-centered has-text-centered">
+      	<p><b> Text Prompt: “a person is <font color="red">holding a cup of coffee in the right hand</font>.”</b></p>
+
+                <video poster="" id="tree"  controls width=300>
+          <source src="static/figures/text_prompt/hold.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+            <div class="column is-centered has-text-centered">
+      	<p><b> Text Prompt: “the person is <font color="red">playing the guitar</font>.”</b></p>
+
+                <video poster="" id="tree"  controls width=300>
+          <source src="static/figures/text_prompt/guitar.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+            <div class="column is-centered has-text-centered">
+      	<p><b> Text Prompt: “standing like a <font color="red">boxer</font>.”</b></p>
+
+                <video poster="" id="tree"  controls width=300>
+          <source src="static/figures/text_prompt/boxer.mp4"
+          type="video/mp4">
+        </video>
+  </div>
+</div>
+</div>
+
+  <div class="hero-body">
+    <div class="column is-centered has-text-centered">
+    <h3 class="title is-4">Long Sample Results</h3>
+    <p><b> (The left video is the video prompt, and the right video shows the results.)</b></p>
+
+    <div id="results-carousel" class="carousel results-carousel">
+        
+      <div class="column is-centered has-text-centered">
+            <video poster="" id="tree" muted controls width=300>
+              <source src="static/figures/video_prompt/hiphop.mp4"
+              type="video/mp4">
+            </video>
+            <video poster="" id="tree"  controls width=300>
+              <source src="static/figures/video_prompt/hiphop-video-prompt.mp4"
+              type="video/mp4">
+            </video>
+            <p><b>Video Prompt: “a dance of <font color="red">hip-hop style</font>.”</b></p>
+            </br>
+      </div>
+
+      <div class="column is-centered has-text-centered">
+        <video poster="" id="tree" muted controls width=300>
+          <source src="static/figures/video_prompt/yoga1.mp4"
+          type="video/mp4">
+        </video>
+        <video poster="" id="tree"  controls width=300>
+          <source src="static/figures/video_prompt/yoga1_final_0001-0463.mp4"
+          type="video/mp4">
+        </video>
+        <p><b>Video Prompt: “a <font color="red">yoga</font> gesture.”</b></p>
+        </br>
+      </div>
+
+      <div class="column is-centered has-text-centered">
+            <video poster="" id="tree" muted controls width=300>
+              <source src="static/figures/video_prompt/yoga.mp4"
+              type="video/mp4">
+            </video>
+            <video poster="" id="tree"  controls width=300>
+              <source src="static/figures/video_prompt/yoga2_final_0001-0463.mp4"
+              type="video/mp4">
+            </video>
+            <p><b>Video Prompt: “a <font color="red">yoga</font> gesture.”</b></p>
+            </br>
+      </div>
+
+      <div class="column is-centered has-text-centered">
+            <video poster="" id="tree" muted controls width=300>
+              <source src="static/figures/video_prompt/bird.mp4"
+              type="video/mp4">
+            </video>
+            <video poster="" id="tree"  controls width=300>
+              <source src="static/figures/video_prompt/bird_final1_0001-0445.mp4"
+              type="video/mp4">
+            </video>
+            <p><b>Video Prompt: “a bird <font color="red">flaps wings</font> in flight.”</b></p>
+            </br>
+      </div>
+
+      <div class="column is-centered has-text-centered">
+        <video poster="" id="tree" muted controls width=300>
+          <source src="static/figures/video_prompt/wind.mp4"
+          type="video/mp4">
+        </video>
+        <video poster="" id="tree"  controls width=300>
+          <source src="static/figures/video_prompt/wind_video.mp4"
+          type="video/mp4">
+        </video>
+        <p><b>Video Prompt: “trees <font color="red">sway</font> with the wind.”</b></p>
+        </br>
+      </div>
+
+      <div class="column is-centered has-text-centered">
+        <video poster="" id="tree" muted controls width=300>
+          <source src="static/figures/video_prompt/fire.mp4"
+          type="video/mp4">
+        </video>
+        <video poster="" id="tree"  controls width=300>
+          <source src="static/figures/video_prompt/fire_final_new0001-0438.mp4"
+          type="video/mp4">
+        </video>
+        <p><b>Video Prompt: “flames <font color="red">burn</font> in the fireplace.”</b></p>
+        </br>
+      </div>
+
+      <div class="column is-centered has-text-centered">
+        <video poster="" id="tree" muted controls width=300>
+          <source src="static/figures/video_prompt/dinosaur.mp4"
+          type="video/mp4">
+        </video>
+        <video poster="" id="tree"  controls width=300>
+          <source src="static/figures/video_prompt/dinosaur_final_0001-0438.mp4"
+          type="video/mp4">
+        </video>
+        <p><b>Video Prompt: “a standing <font color="red">dinosaur</font>.”</b></p>
+        </br>
+      </div>
+
+      <div class="column is-centered has-text-centered">
+        <video poster="" id="tree" muted controls width=170>
+          <source src="static/figures/video_prompt/lightning.mp4"
+          type="video/mp4">
+        </video>
+        <video poster="" id="tree"  controls width=300>
+          <source src="static/figures/video_prompt/lightning_final_0001-0445.mp4"
+          type="video/mp4">
+        </video>
+        <p><b>Video Prompt: “<font color="red">lightning</font> descends from the sky.”</b></p>
+        </br>
+      </div>
+</div>
+</div>
+</section> -->
+
+<!-- sample demo -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Semantic Gestures Synthesis</h2>
+        <div class="content has-text-justified">
+          <p>
+            Our system successfully creates realistic gestures that accurately convey the intended meanings, aligning with the respective retrieval results. The character performs a range of semantic gestures, including natural body movements, reasonable arm swings, and delicate finger gesticulations. Here are some results:
+          </p>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-body">
+      <div class="column is-centered has-text-centered">
+      <h3 class="title is-4">Short Sample Results</h3>
+        <div id="results-carousel" class="carousel results-carousel">
+        <div class="column is-centered has-text-centered">
+                  <video poster="" id="tree" controls  width=700>
+            <source src="static/figures/sg_demo/short_1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+  
+        <div class="column is-centered has-text-centered">
+                  <video poster="" id="tree" controls  width=700>
+            <source src="static/figures/sg_demo/short2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+  
+        <div class="column is-centered has-text-centered">
+                  <video poster="" id="tree"  controls width=700>
+            <source src="static/figures/sg_demo/short3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+  
+        <div class="column is-centered has-text-centered">
+          <video poster="" id="tree"  controls width=700>
+          <source src="static/figures/sg_demo/short4.mp4"
+          type="video/mp4">
+        </video>
+        </div>
+  
+        <div class="column is-centered has-text-centered">
+          <video poster="" id="tree"  controls width=700>
+        <source src="static/figures/sg_demo/short5.mp4"
+        type="video/mp4">
+        </video>
+        </div>
+  
+        <div class="column is-centered has-text-centered">
+          <video poster="" id="tree"  controls width=700>
+        <source src="static/figures/sg_demo/short6.mp4"
+        type="video/mp4">
+        </video>
+        </div>
+  
+  </div>
+</div>
+  
+  <div class="column is-centered has-text-centered">
+    <h3 class="title is-4">Long Sample Results</h3>
+      <div id="results-carousel" class="carousel results-carousel">
+      <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" controls  width=700>
+          <source src="static/figures/sg_demo/long_1.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+  
+      <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" controls  width=700>
+          <source src="static/figures/sg_demo/long_2.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+  
+    </div>
+
+  </div>
+    <!--/ Abstract. -->
+  </div>
+</section> 
+
+<!-- seg example -->
+<section class="hero is-small">
+  <br>
+  <br>
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">SeG dataset</h2>
+        <div class="content has-text-justified">
+          <p>
+            We compile a comprehensive set of semantic gestures commonly used in human communication, drawing on relevant linguistic and human behavioral studies.
+            Based on this collection, we record a high-quality dataset of body, hand, and finger movement using motion capture. 
+            This dataset contains over 200 types of semantic gestures, each offering a variety of gestures. Some examples are shown below.
+          </p>
+        </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+
+  <div id="results-carousel" class="carousel results-carousel">
+  <div class="column is-centered has-text-centered">
+    <p><b> 0310 FINGERS BECKON </b></p>
+
+      <video poster="" id="tree"  controls width=300>
+      <source src="static/figures/sg_demo/seg_1.mp4"
+      type="video/mp4">
+    </video>
+  </div>
+
+  <div class="column is-centered has-text-centered">
+    <p><b> 3031 ARMS WELCOME </b></p>
+
+            <video poster="" id="tree"  controls width=300>
+      <source src="static/figures/sg_demo/seg_2.mp4"
+      type="video/mp4">
+    </video>
+  </div>
+
+  <div class="column is-centered has-text-centered">
+    <p><b> 0220 FINGERTIPS KISS </b></p>
+
+            <video poster="" id="tree"  controls width=300>
+      <source src="static/figures/sg_demo/seg_3.mp4"
+      type="video/mp4">
+    </video>
+  </div>
+
+  <div class="column is-centered has-text-centered">
+    <p><b> 3030 HAND OPEN </b></p>
+
+            <video poster="" id="tree"  controls width=300>
+      <source src="static/figures/sg_demo/seg_4.mp4"
+      type="video/mp4">
+    </video>
+  </div>
+
+  <div class="column is-centered has-text-centered">
+    <p><b> 2113 PALMS FRONT </b></p>
+
+            <video poster="" id="tree"  controls width=300>
+      <source src="static/figures/sg_demo/seg_5.mp4"
+      type="video/mp4">
+    </video>
+  </div>
+
+  <div class="column is-centered has-text-centered">
+    <p><b> 3021 THUBM UP </b></p>
+
+            <video poster="" id="tree"  controls width=300>
+      <source src="static/figures/sg_demo/seg_6.mp4"
+      type="video/mp4">
+    </video>
+  </div>
+  </div>
+</div>
+<br>
+<br>
+</section>
+
+
+<!-- video demo -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Gesture Editing</h2>
+        <div class="content has-text-justified">
+          <p>
+            We devise an augmentation framework for identifying semantically similar gestures from an 
+            extensive collection of 2D videos, thereby enhancing the diversity of gestures. Moreover, 
+            through customizing a 2D video library, users can flexibly edit the style of final outcomes.
+          </p>
+        </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+
+  <div class="hero-body">
+    <div class="container">
+
+      <div class="column is-centered has-text-centered">
+         <video poster="" id="tree"  controls width=800>
+          <source src="static/figures/sg_demo/video_1.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+<!-- bibtex info -->
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+<pre><code>
+@article{
+  Zhang2024SemanticGesture,
+  author = {Zhang, Zeyi and Ao, Tenglong and Zhang, Yuyao and Gao, Qingzhe and Lin, Chuan and Chen, Baoquan and Liu, Libin},
+  title = {Semantic Gesticulator: Semantics-Aware Co-Speech Gesture Synthesis},
+  journal = {ACM Trans. Graph.},
+  issue_date = {July 2024},
+  numpages = {17},
+  doi = {10.1145/3658134},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  keywords = {co-speech gesture synthesis, multi-modality, retrieval augmentation}
+}
+</code></pre>
+    </div>
+</section>
+
+
+
+
+<footer class="footer">
+ <!--  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+      href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+      <i class="fas fa-file-pdf"></i>
+    </a>
+    <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      <i class="fab fa-github"></i>
+    </a>
+  </div> -->
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content">
+        <p>
+          This website is licensed under a <a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+        href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+</footer>
+
+
+  <script type="text/javascript">
+    var sc_project=12351448; 
+    var sc_invisible=1; 
+    var sc_security="c676de4f"; 
+  </script>
+  <script type="text/javascript"
+  src="https://www.statcounter.com/counter/counter.js"
+  async></script>
+  <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img
+    class="statcounter"
+    src="https://c.statcounter.com/12351448/0/c676de4f/1/"
+    alt="Web Analytics"></a></div></noscript>
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
